@@ -2,13 +2,11 @@
 FROM ubuntu:22.04
 
 # set work directory
-WORKDIR /usr/src/app
+WORKDIR /spark-stream-api
 
 RUN apt update -y
-# RUN apt install -y python3
 RUN apt install -y python3-pip
-RUN apt install default-jre -y
-# RUN apt install default-jdk -y
+RUN apt install openjdk-11-jre-headless -y
 
 # install dependencies
 RUN pip install --upgrade pip
@@ -17,7 +15,7 @@ RUN pip install -r requirements.txt
 
 # EXPOSE 9001
 
-# copy project
-COPY . .
+COPY . /spark-stream-api
 
-# CMD [ "uvicorn", "app:app", "--reload", "--host", "127.0.0.1", "--port", "9001" ]
+
+# CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "9001"]
