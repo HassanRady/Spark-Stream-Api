@@ -1,12 +1,10 @@
 from SparkStream.streamer import SparkClient
-from SparkStream.cassandra import CassandraApi
 from fastapi import FastAPI
 import uvicorn
 
 
 app = FastAPI()
 client = SparkClient()
-ca = CassandraApi()
 
 
 
@@ -24,16 +22,6 @@ async def stop_spark_stream():
     client.stop_spark_stream()
     return {"status": "stopped"}
 
-
-@app.get("/stream")
-async def get_stream_data():
-    df = client.get_stream_data().toPandas()
-    return df.to_json()
-
-@app.get("/offline_tweets")
-async def get_offline_tweets():
-    df_tweets = ca.get_offline_data().toPandas()
-    return df_tweets.to_json()
 
 
 if __name__ == "__main__":
