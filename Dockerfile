@@ -8,11 +8,7 @@ RUN apt update -y
 RUN apt-get install iputils-ping -y
 RUN apt install -y python3-pip
 RUN apt install default-jre-headless -y
-# RUN apt install maven -y
 
-# RUN git clone https://github.com/RedisLabs/spark-redis.git
-# WORKDIR /spark-redis
-# RUN mvn clean package -DskipTests
 
 # install dependencies
 RUN pip install --upgrade pip
@@ -26,4 +22,4 @@ RUN pip install -r requirements.txt
 COPY . /spark-stream-api
 
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "9001"]
+# CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "9001"]
