@@ -12,8 +12,8 @@ def read_root():
 
 
 @app.get("/start")
-async def start_spark_stream(topic):
-    client.start_spark_stream(topic)
+async def start_spark_stream():
+    client.start_spark_stream()
     return {"status": "started"}
 
 
