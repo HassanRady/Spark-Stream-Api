@@ -3,7 +3,7 @@
 ## Documentation
 <img src="assets/spark-api.png" />
 
-Its used to access the SparkStream Package which is used to process streaming data from a kafka topic into cassandra and redis.
+Its used to access the <a href="https://github.com/HassanRady/SparkStream">SparkStream Package</a> which is used to process streaming data from a kafka topic into cassandra and redis.
 
 Start Spark Stream endpoint success output:
 ```json
